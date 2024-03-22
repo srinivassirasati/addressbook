@@ -13,8 +13,10 @@ pipeline {
     stages {
         stage('compile') {
             steps {
+                script{
                 echo "Compiling the code ${params.APPVERSION}"
-                
+                sh 'mvn compile'
+                }
             }
 
            
@@ -27,15 +29,20 @@ pipeline {
                 }
             }
             steps {
+                script{
                 echo "Test the code"
-                
+                sh 'mvn test'
+            }
             }
 
            
         }
         stage('package') {
             steps {
-                echo "package the code ${params.Env}"
+                script{
+            echo "package the code ${params.Env}"
+                sh 'mvn package'
+                }
                 
             }
         }
