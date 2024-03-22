@@ -38,14 +38,9 @@ pipeline {
                 echo "package the code ${params.Env}"
                 
             }
+        }
             stage('DEPLOY') {
-               /* input{
-                    message "select the version to deploy"
-                    ok "version selected"
-                    parameters{
-                        choice(name:'PLATFORM',choices['EKS','K8s','SERVERS'])
-                    }
-                }*/
+               
             steps {
                 echo "Deploy the code ${params.Env}"
                 
