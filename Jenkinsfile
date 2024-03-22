@@ -11,7 +11,7 @@ pipeline {
     choice(name: 'APPVERSION', choices: ['1.1', '1.2', '1.3'])
     }
 
-    enviornment{
+    enviornment {
         PACKAGE_SERVER = 'ec2-user@172.31.1.202'
     }
 
@@ -49,8 +49,8 @@ pipeline {
                 script{
                     sshagent(['slave2']) {
             echo "package the code ${params.Env}"
-                sh "scp -o StrictKeyChecking=no server-config.sh ${PACKAGE_SERVER}:home/ec2-user"
-                sh "ssh -o StrictKeyChecking=no ${PACKAGE_SERVER} 'bash ~/server-config.sh'"
+                sh "scp -o StrictHostKeyChecking=no server-config.sh ${PACKAGE_SERVER}:home/ec2-user"
+                sh "ssh -o StrictHostKeyChecking=no ${PACKAGE_SERVER} 'bash ~/server-config.sh'"
                 
                 }
                 
