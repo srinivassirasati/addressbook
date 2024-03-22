@@ -7,7 +7,7 @@ pipeline {
     }
     parameters { 
     string(name: 'Env', defaultValue: 'Test', description: 'version to display') 
-    booleanParam(name: 'executeTests', defaultValue: true, description: 'decide to run tc')
+    booleanParam(name: 'executeTests', defaultValue: true, description: 'decide to run testcase')
     choice(name: 'APPVERSION', choices: ['1.1', '1.2', '1.3'])
     }
     stages {
@@ -20,6 +20,12 @@ pipeline {
            
         }
         stage('UnitTest') {
+
+            when{
+                expression{
+                    params.executeTests==true
+                }
+            }
             steps {
                 echo "Test the code"
                 
