@@ -38,7 +38,7 @@ pipeline {
                 echo "package the code ${params.Env}"
                 
             }
-            stage('DEPLOY') {
+          /*  stage('DEPLOY') {
                 input{
                     message "select the version to deploy"
                     ok "version selected"
@@ -49,9 +49,8 @@ pipeline {
             steps {
                 echo "Deploy the code ${params.Env}"
                 
-            }
+            }*/
            
         }
     }
-}
 }
