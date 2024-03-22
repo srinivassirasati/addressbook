@@ -13,10 +13,10 @@ pipeline {
     stages {
         stage('compile') {
             steps {
-                script{
+                
                 echo "Compiling the code ${params.APPVERSION}"
                 sh 'mvn compile'
-                }
+                
             }
 
            
