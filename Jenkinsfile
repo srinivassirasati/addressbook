@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
@@ -12,6 +12,7 @@ pipeline {
     }
     stages {
         stage('compile') {
+            agent {label 'linux_slave'}
             steps {
                 
                 echo "Compiling the code ${params.APPVERSION}"
@@ -22,7 +23,7 @@ pipeline {
            
         }
         stage('UnitTest') {
-
+            agent any
             when{
                 expression{
                     params.executeTests==true
@@ -38,6 +39,7 @@ pipeline {
            
         }
         stage('package') {
+            agent any
             steps {
                 script{
             echo "package the code ${params.Env}"
