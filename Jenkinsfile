@@ -40,8 +40,8 @@ pipeline {
             }
             stage(' DEPLOY') {
                 input{
-                    message "select the versrion to deploy"
-                    OK "version selected"
+                    message "select the version to deploy"
+                    ok "version selected"
                     parameters{
                         choice(name:'PLATFORM',choices['EKS','K8s','SERVERS'])
                     }
