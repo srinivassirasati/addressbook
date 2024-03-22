@@ -41,8 +41,8 @@ pipeline {
         }
             stage('DEPLOY') {
                input {
-                message "select version to display"
-                ok "version selected"
+                message "select platform to display"
+                ok "platform selected"
                 
                 parameters {
                     choice(name:'PLATFORM', choices:['EKS','K8S','SERVERS'])
