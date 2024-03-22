@@ -45,7 +45,7 @@ pipeline {
                 ok "version selected"
                 
                 parameters {
-                    choice(name: 'PLATFORM', choices['EKS','K8S','SERVERS'])
+                    choice(name:'PLATFORM', choices:['EKS','K8S','SERVERS'])
                 }
                }
             steps {
