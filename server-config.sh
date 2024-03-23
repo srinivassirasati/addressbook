@@ -3,7 +3,7 @@
 sudo yum install git -y
 sudo yum install maven -y
 sudo yum install java-1.8.0-openjdk-devel -y 
-sudo wget https://pkg.jenkins.io/redhat-stable/jenkins-2.426.1-1.1.noarch.rpm -y
+sudo wget https://pkg.jenkins.io/redhat-stable/jenkins-2.426.1-1.1.noarch.rpm
 sudo yum install jenkins-2.426.1-1.1.noarch.rpm -y
 
 
