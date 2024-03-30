@@ -1,13 +1,13 @@
-# Use an official Tomcat image with Maven included as a parent image
+
 
 FROM tomcat:8.5.72-jdk8-openjdk-buster
 
-# Set environment variables for Maven
+
 
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_VERSION 3.8.4
 
-# Install Maven
+
 
 RUN apt-get update && \
     apt-get install -y curl && \
@@ -17,14 +17,14 @@ RUN apt-get update && \
     apt-get clean && \
      rm -rf /var/lib/apt/lists/*
 
-# Set the working directory in the container
+
 WORKDIR /app
 
-# Copy the Maven project files (pom.xml) and the source code into the container
+
 COPY ./pom.xml ./pom.xml
 COPY ./src ./src
 
-# Build the Maven application and package it as a WAR file
+
 RUN mvn clean package
 
 # Remove the default Tomcat applications
